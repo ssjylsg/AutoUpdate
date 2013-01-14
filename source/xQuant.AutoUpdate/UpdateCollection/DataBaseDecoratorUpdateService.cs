@@ -2,6 +2,9 @@ using System.Configuration;
 
 namespace xQuant.AutoUpdate
 {
+    /// <summary>
+    /// 数据库更新
+    /// </summary>
     class DataBaseDecoratorUpdateService : BaseUpdateService
     {
         public override string Title

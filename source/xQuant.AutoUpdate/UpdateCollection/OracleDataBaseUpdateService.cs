@@ -7,7 +7,7 @@ using System.Text;
 namespace xQuant.AutoUpdate
 {
     /// <summary>
-    /// 数据库更新
+    /// Oracle数据库更新
     /// </summary>
     class OracleDataBaseUpdateService : BaseUpdateService
     {

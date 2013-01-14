@@ -8,6 +8,9 @@ using System.Text;
 
 namespace xQuant.AutoUpdate
 {
+    /// <summary>
+    /// SqlServer ¸üÐÂ
+    /// </summary>
     class SqlDataBaseUpdateService : BaseUpdateService
     {
         public override string Title

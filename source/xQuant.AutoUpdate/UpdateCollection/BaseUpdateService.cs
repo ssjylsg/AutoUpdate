@@ -5,6 +5,9 @@ using System.Text;
 
 namespace xQuant.AutoUpdate
 {
+    /// <summary>
+    /// 抽象升级服务
+    /// </summary>
     public abstract class BaseUpdateService : IUpdateService
     {
         protected BaseUpdateService()

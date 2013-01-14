@@ -11,6 +11,9 @@ namespace xQuant.AutoUpdate
     public delegate void ShowMessageHandler(string message);
 
     public delegate void StateChangeHandler(IUpdateService updateServiceService);
+    /// <summary>
+    /// Éý¼¶·þÎñ
+    /// </summary>
     public interface IUpdateService
     {
         /// <summary>

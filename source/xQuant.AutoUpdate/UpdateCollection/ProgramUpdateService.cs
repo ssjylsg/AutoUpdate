@@ -6,6 +6,9 @@ using System.Text;
 
 namespace xQuant.AutoUpdate
 {
+    /// <summary>
+    /// ³ÌÐò¸üÐÂ
+    /// </summary>
     class ProgramUpdateService : BaseUpdateService
     {
         public override string Title
