@@ -112,12 +112,20 @@ namespace xQuant.AutoUpdate
                 {
                     if (_updateVersionsQueue.Count > 0) // 执行下一版本的更新
                     {
+                        UpdateVersion nextUpdate = _updateVersionsQueue.Dequeue();
+                        this._currentVersion = nextUpdate;
+
                         if (MessageBox.Show(string.Format("{0}升级完成，请查看详细日志，是否继续升级？", update.Version),
-                            "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                            "提示", MessageBoxButtons.YesNo) == DialogResult.Yes)
                         {
-                            UpdateVersion nextUpdate = _updateVersionsQueue.Dequeue();
-                            this._currentVersion = nextUpdate;
+
+                            // 继续更新下个
                             StartUpdate(nextUpdate, true);
+                        }
+                        else
+                        {
+                            // 暂停跟新下个版本  将继续更新按钮置为可用
+                            this.btnResetState.Invoke(new MethodInvoker(delegate() { btnResetState.Enabled = true; }));
                         }
                     }
                     else // 全部版本升级完成

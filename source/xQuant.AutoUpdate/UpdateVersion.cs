@@ -30,15 +30,8 @@ namespace xQuant.AutoUpdate
             _updateManager = new UpdateManager();
             this._updateManager.UpdateFolderName = updateFolderName;
             this._updateManager.ProgramFolderName = programFolderName;
-            this._updateManager.BackupFolder = System.IO.Path.Combine(programFolderName,
-                                                                      string.Format("{0}_{1}_备份_{2}", this.ProductName,
-                                                                                    this.Version,
-                                                                                    DateTime.Now.ToString(
-                                                                                        "yyyy_MM_dd_HH_mm")));
-            if (!System.IO.Directory.Exists(this._updateManager.BackupFolder))
-            {
-                System.IO.Directory.CreateDirectory(this._updateManager.BackupFolder);
-            }
+            this._updateManager.BackupFolder =
+                string.Format("{0}_{1}_备份_{2}", this.ProductName, this.Version, DateTime.Now.ToString("yyyy_MM_dd_HH_mm"));
         }
 
         /// <summary>
@@ -55,7 +48,7 @@ namespace xQuant.AutoUpdate
         {
             get
             {
-                return ((List<IUpdateService>) this._updateManager.CurrentService).Find(delegate(IUpdateService update)
+                return ((List<IUpdateService>)this._updateManager.CurrentService).Find(delegate(IUpdateService update)
                     { return update.State == UpdateState.Fail; });
             }
         }
