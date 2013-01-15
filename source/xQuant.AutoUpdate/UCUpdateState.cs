@@ -13,7 +13,6 @@ namespace xQuant.AutoUpdate
                 return;
             }
             this.panelState.Height = this.Height;
-            this.lblName.Text = updateServiceService.Title;
             this.Title = updateServiceService.Title;
         }
         private Color _defaultColore = Color.AliceBlue;
@@ -26,18 +25,34 @@ namespace xQuant.AutoUpdate
         public string Title
         {
             get { return _title; }
-            set { _title = value; }
+            set
+            {
+                _title = value;
+                this.lblName.Text = _title;
+            }
         }
         /// <summary>
         /// 重置Panel 的色彩
         /// </summary>
         public void ResetPanelColor()
         {
-            panelState.BackColor = _defaultColore;
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new MethodInvoker(delegate()
+                    {
+                        panelState.BackColor = _defaultColore;
+                        this.lblState.Text = "未知";
+                    }));
+            }
+            else
+            {
+                panelState.BackColor = _defaultColore;
+                this.lblState.Text = "未知";
+            }
         }
 
         /// <summary>
-        /// 更新程序状态变化事件
+        /// 升级程序状态变化事件
         /// </summary>
         /// <param name="updateServiceService"></param>
         public void UpdateState(IUpdateService updateServiceService)

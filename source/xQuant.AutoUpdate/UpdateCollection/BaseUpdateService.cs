@@ -41,7 +41,7 @@ namespace xQuant.AutoUpdate
         private string _updateFolderName;
 
         /// <summary>
-        /// 当前执行更新文件夹地址
+        /// 当前执行升级文件夹地址
         /// </summary>
         protected string CurrentDirectory
         {
@@ -153,17 +153,39 @@ namespace xQuant.AutoUpdate
 
     public enum UpdateState
     {
-        [Description("")]
+        [Description("未知")]
         None,
-        [Description("更新前操作")]
+        [Description("升级前操作")]
         BeforeUpdate,
-        [Description("更新中")]
+        [Description("升级中")]
         Update,
-        [Description("成功")]
+        [Description("升级成功")]
         AfterUpdate,
-        [Description("失败")]
+        [Description("升级失败")]
         Fail,
-        [Description("成功")]
+        [Description("升级成功")]
         Success
     }
+    ///// <summary>
+    ///// 跟新状态发生变化来源
+    ///// </summary>
+    //public enum StateChangeSource
+    //{
+    //    /// <summary>
+    //    /// 版本升级成功
+    //    /// </summary>
+    //    VersionUpdateSuccess,
+    //    /// <summary>
+    //    /// UpdateService 正在执行
+    //    /// </summary>
+    //    UpdateServiceRunning,
+    //    /// <summary>
+    //    /// 一个UpdateSuccess 升级成功
+    //    /// </summary>
+    //    UpdateServiceSuccess,
+    //    /// <summary>
+    //    /// 异常
+    //    /// </summary>
+    //    Error
+    //}
 }

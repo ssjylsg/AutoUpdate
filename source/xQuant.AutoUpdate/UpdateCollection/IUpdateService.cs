@@ -10,10 +10,16 @@ namespace xQuant.AutoUpdate
     /// <param name="message"></param>
     public delegate void ShowMessageHandler(string message);
     /// <summary>
-    /// 更新状态发生变化
+    /// 升级状态发生变化 每个UpdateService 中状态的变化 如执行前，执行中，执行后，执行成功，执行失败
     /// </summary>
     /// <param name="updateServiceService"></param>
     public delegate void StateChangeHandler(IUpdateService updateServiceService);
+    /// <summary>
+    ///升级状态发生变化   每个updateSercie 的变化，如updateService 成功，失败，或者执行中 主要用于进度条的显示
+    /// </summary>
+    /// <param name="message"></param>
+    /// <param name="source"></param>
+    //public delegate void ProcessStateChangeHandler(string message, StateChangeSource source);
     /// <summary>
     /// 升级服务
     /// </summary>
@@ -43,12 +49,6 @@ namespace xQuant.AutoUpdate
         /// 开始执行升级
         /// </summary>
         void Update();
-
-        /// <summary>
-        /// 是否成功
-        /// </summary>
-        //bool Success { get; set; }
-
         /// <summary>
         /// 状态
         /// </summary>

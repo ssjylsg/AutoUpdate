@@ -8,13 +8,13 @@ using System.Xml;
 namespace xQuant.AutoUpdate
 {
     /// <summary>
-    /// 中间件Config更新
+    /// 中间件Config升级
     /// </summary>
     class MiddlewareConfig : BaseUpdateService
     {
         public override string Title
         {
-            get { return "中间件配置更新"; }
+            get { return "中间件配置升级"; }
         }
 
         public override string DirectoryName
@@ -32,7 +32,7 @@ namespace xQuant.AutoUpdate
             string configFile = Path.Combine(this.TargetPath, Settings.AutoUpdateSetting.Default.ConfigName);
             if (!File.Exists(configFile))
             {
-                throw new Exception(string.Format("{0} 配置文件未找到",Settings.AutoUpdateSetting.Default.ConfigName));
+                throw new Exception(string.Format("{0} 配置文件未找到", Settings.AutoUpdateSetting.Default.ConfigName));
             }
 
             // 备份.config 文件
@@ -106,7 +106,7 @@ namespace xQuant.AutoUpdate
             return false;
         }
         /// <summary>
-        /// 更新 Corecontrol 配置节
+        /// 升级 Corecontrol 配置节
         /// </summary>
         /// <param name="configFile"></param>
         /// <param name="contents"></param>
@@ -140,7 +140,7 @@ namespace xQuant.AutoUpdate
             doc.Save(configFile);
         }
         /// <summary>
-        /// 更新AppSetting配置节
+        /// 升级AppSetting配置节
         /// </summary>
         /// <param name="configFile"></param>
         /// <param name="content"></param>
@@ -172,7 +172,7 @@ namespace xQuant.AutoUpdate
         }
 
         /// <summary>
-        /// 更新service配置节
+        /// 升级service配置节
         /// </summary>
         /// <param name="configFile"></param>
         /// <param name="content"></param>

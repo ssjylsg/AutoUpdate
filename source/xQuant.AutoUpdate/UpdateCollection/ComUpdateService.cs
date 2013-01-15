@@ -1,18 +1,18 @@
 namespace xQuant.AutoUpdate
 {
     /// <summary>
-    /// Com 更新
+    /// Com 升级
     /// </summary>
     public class ComUpdateService : BaseUpdateService
     {
         public override string Title
         {
-            get { return "Com 更新"; }
+            get { return "Com 升级"; }
         }
 
         public override string DirectoryName
         {
-            get { return "COM更新"; }
+            get { return "COM升级"; }
         }
 
         public override void BeforeUpdate()

@@ -32,6 +32,7 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.progressBarUpdate = new DevExpress.XtraEditors.ProgressBarControl();
             this.lblTotalState = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnProOpen = new DevExpress.XtraEditors.SimpleButton();
@@ -44,6 +45,8 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnResetState = new DevExpress.XtraEditors.SimpleButton();
             this.btnSaveLog = new DevExpress.XtraEditors.SimpleButton();
@@ -55,14 +58,12 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.progressBarUpdate = new DevExpress.XtraEditors.ProgressBarControl();
-            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarUpdate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPro.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUpdate.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
@@ -71,15 +72,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarUpdate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -109,8 +109,8 @@
             // 
             // layoutControl2
             // 
-            this.layoutControl2.Controls.Add(this.lblTotalState);
             this.layoutControl2.Controls.Add(this.progressBarUpdate);
+            this.layoutControl2.Controls.Add(this.lblTotalState);
             this.layoutControl2.Controls.Add(this.panel2);
             this.layoutControl2.Controls.Add(this.btnProOpen);
             this.layoutControl2.Controls.Add(this.txtPro);
@@ -124,20 +124,30 @@
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
+            // progressBarUpdate
+            // 
+            this.progressBarUpdate.Location = new System.Drawing.Point(4, 86);
+            this.progressBarUpdate.MaximumSize = new System.Drawing.Size(0, 18);
+            this.progressBarUpdate.Name = "progressBarUpdate";
+            this.progressBarUpdate.Properties.ShowTitle = true;
+            this.progressBarUpdate.Size = new System.Drawing.Size(378, 18);
+            this.progressBarUpdate.StyleController = this.layoutControl2;
+            this.progressBarUpdate.TabIndex = 9;
+            // 
             // lblTotalState
             // 
             this.lblTotalState.Location = new System.Drawing.Point(4, 57);
             this.lblTotalState.Name = "lblTotalState";
             this.lblTotalState.Padding = new System.Windows.Forms.Padding(2);
-            this.lblTotalState.Size = new System.Drawing.Size(378, 21);
+            this.lblTotalState.Size = new System.Drawing.Size(378, 24);
             this.lblTotalState.TabIndex = 0;
             this.lblTotalState.Text = "总体升级状态：未知状态";
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(7, 119);
+            this.panel2.Location = new System.Drawing.Point(7, 114);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(372, 292);
+            this.panel2.Size = new System.Drawing.Size(372, 297);
             this.panel2.TabIndex = 8;
             // 
             // btnProOpen
@@ -188,8 +198,8 @@
             this.layoutControlItem6,
             this.layoutControlItem7,
             this.layoutControlItem8,
-            this.layoutControlItem10,
-            this.layoutControlItem9});
+            this.layoutControlItem9,
+            this.layoutControlItem10});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Size = new System.Drawing.Size(385, 417);
@@ -256,14 +266,42 @@
             // 
             this.layoutControlItem8.Control = this.panel2;
             this.layoutControlItem8.CustomizationFormText = "layoutControlItem8";
-            this.layoutControlItem8.Location = new System.Drawing.Point(0, 112);
+            this.layoutControlItem8.Location = new System.Drawing.Point(0, 107);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(383, 303);
+            this.layoutControlItem8.Size = new System.Drawing.Size(383, 308);
             this.layoutControlItem8.Text = "layoutControlItem8";
             this.layoutControlItem8.TextLocation = DevExpress.Utils.Locations.Left;
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextToControlDistance = 0;
             this.layoutControlItem8.TextVisible = false;
+            // 
+            // layoutControlItem9
+            // 
+            this.layoutControlItem9.Control = this.lblTotalState;
+            this.layoutControlItem9.CustomizationFormText = "layoutControlItem9";
+            this.layoutControlItem9.Location = new System.Drawing.Point(0, 53);
+            this.layoutControlItem9.Name = "layoutControlItem9";
+            this.layoutControlItem9.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
+            this.layoutControlItem9.Size = new System.Drawing.Size(383, 29);
+            this.layoutControlItem9.Text = "layoutControlItem9";
+            this.layoutControlItem9.TextLocation = DevExpress.Utils.Locations.Left;
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem9.TextToControlDistance = 0;
+            this.layoutControlItem9.TextVisible = false;
+            // 
+            // layoutControlItem10
+            // 
+            this.layoutControlItem10.Control = this.progressBarUpdate;
+            this.layoutControlItem10.CustomizationFormText = "layoutControlItem10";
+            this.layoutControlItem10.Location = new System.Drawing.Point(0, 82);
+            this.layoutControlItem10.Name = "layoutControlItem10";
+            this.layoutControlItem10.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
+            this.layoutControlItem10.Size = new System.Drawing.Size(383, 25);
+            this.layoutControlItem10.Text = "layoutControlItem10";
+            this.layoutControlItem10.TextLocation = DevExpress.Utils.Locations.Left;
+            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem10.TextToControlDistance = 0;
+            this.layoutControlItem10.TextVisible = false;
             // 
             // panel1
             // 
@@ -279,27 +317,27 @@
             // btnResetState
             // 
             this.btnResetState.Enabled = false;
-            this.btnResetState.Location = new System.Drawing.Point(260, 4);
+            this.btnResetState.Location = new System.Drawing.Point(264, 4);
             this.btnResetState.Name = "btnResetState";
             this.btnResetState.Size = new System.Drawing.Size(95, 23);
             this.btnResetState.TabIndex = 4;
-            this.btnResetState.Text = "继续更新";
+            this.btnResetState.Text = "继续升级";
             this.btnResetState.Click += new System.EventHandler(this.btnResetState_Click);
             // 
             // btnSaveLog
             // 
             this.btnSaveLog.Location = new System.Drawing.Point(514, 4);
             this.btnSaveLog.Name = "btnSaveLog";
-            this.btnSaveLog.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveLog.Size = new System.Drawing.Size(95, 23);
             this.btnSaveLog.TabIndex = 3;
             this.btnSaveLog.Text = "保存日志";
             this.btnSaveLog.Click += new System.EventHandler(this.btnSaveLog_Click);
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(400, 4);
+            this.btnClear.Location = new System.Drawing.Point(389, 4);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.Size = new System.Drawing.Size(95, 23);
             this.btnClear.TabIndex = 2;
             this.btnClear.Text = "清空日志";
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
@@ -308,9 +346,9 @@
             // 
             this.btnStart.Location = new System.Drawing.Point(139, 4);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.Size = new System.Drawing.Size(95, 23);
             this.btnStart.TabIndex = 0;
-            this.btnStart.Text = "开始";
+            this.btnStart.Text = "开始升级";
             this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // groupBox1
@@ -388,46 +426,6 @@
             this.layoutControlItem3.TextToControlDistance = 0;
             this.layoutControlItem3.TextVisible = false;
             // 
-            // progressBarUpdate
-            // 
-            this.progressBarUpdate.Location = new System.Drawing.Point(7, 86);
-            this.progressBarUpdate.Name = "progressBarUpdate";
-            this.progressBarUpdate.Padding = new System.Windows.Forms.Padding(2);
-            this.progressBarUpdate.Properties.Appearance.BackColor = System.Drawing.Color.White;
-            this.progressBarUpdate.Properties.Appearance.Options.UseBackColor = true;
-            this.progressBarUpdate.Properties.EndColor = System.Drawing.Color.Green;
-            this.progressBarUpdate.Properties.StartColor = System.Drawing.Color.Green;
-            this.progressBarUpdate.Size = new System.Drawing.Size(372, 22);
-            this.progressBarUpdate.StyleController = this.layoutControl2;
-            this.progressBarUpdate.TabIndex = 10;
-            // 
-            // layoutControlItem10
-            // 
-            this.layoutControlItem10.Control = this.progressBarUpdate;
-            this.layoutControlItem10.CustomizationFormText = "layoutControlItem10";
-            this.layoutControlItem10.Location = new System.Drawing.Point(0, 79);
-            this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(383, 33);
-            this.layoutControlItem10.Text = "layoutControlItem10";
-            this.layoutControlItem10.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem10.TextToControlDistance = 0;
-            this.layoutControlItem10.TextVisible = false;
-            // 
-            // layoutControlItem9
-            // 
-            this.layoutControlItem9.Control = this.lblTotalState;
-            this.layoutControlItem9.CustomizationFormText = "layoutControlItem9";
-            this.layoutControlItem9.Location = new System.Drawing.Point(0, 53);
-            this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2);
-            this.layoutControlItem9.Size = new System.Drawing.Size(383, 26);
-            this.layoutControlItem9.Text = "layoutControlItem9";
-            this.layoutControlItem9.TextLocation = DevExpress.Utils.Locations.Left;
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem9.TextToControlDistance = 0;
-            this.layoutControlItem9.TextVisible = false;
-            // 
             // FrmUpdate
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -436,12 +434,13 @@
             this.Controls.Add(this.layoutControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmUpdate";
-            this.Text = "自动更新程序";
+            this.Text = "自动升级程序";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.progressBarUpdate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPro.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtUpdate.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
@@ -450,15 +449,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarUpdate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -491,9 +489,9 @@
         private DevExpress.XtraEditors.SimpleButton btnSaveLog;
         private DevExpress.XtraEditors.SimpleButton btnResetState;
         private System.Windows.Forms.Label lblTotalState;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
         private DevExpress.XtraEditors.ProgressBarControl progressBarUpdate;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
     }
 }
 

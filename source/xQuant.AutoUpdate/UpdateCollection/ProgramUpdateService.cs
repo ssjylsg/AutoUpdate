@@ -7,18 +7,18 @@ using System.Text;
 namespace xQuant.AutoUpdate
 {
     /// <summary>
-    /// 程序更新
+    /// 程序升级
     /// </summary>
     class ProgramUpdateService : BaseUpdateService
     {
         public override string Title
         {
-            get { return "中间件程序更新"; }
+            get { return "中间件程序升级"; }
         }
 
         public override string DirectoryName
         {
-            get { return "中间件程序更新"; }
+            get { return "中间件程序升级"; }
         }
 
         public override void BeforeUpdate()
@@ -36,7 +36,7 @@ namespace xQuant.AutoUpdate
                 // 判断升级文件在原中间件执行文件夹中是否存在，如果存在，则需要备份
                 if (new FileInfo(Path.Combine(this.TargetPath, fileInfo.Name)).Exists)
                 {
-                    fileInfo.CopyTo(Path.Combine(this.BackUpFullFolerName, fileInfo.Name));
+                    fileInfo.CopyTo(Path.Combine(this.BackUpFullFolerName, fileInfo.Name), true);
                     this.OnShowMessage(string.Format("成功备份【{0}】文件", fileInfo.Name));
                 }
             }

@@ -7,7 +7,7 @@ namespace xQuant.AutoUpdate
     {
         public override string Title
         {
-            get { return "MQÅäÖÃÅäÖÃ¸üĞÂ"; }
+            get { return "MQÅäÖÃÅäÖÃÉı¼¶"; }
         }
 
         public override string DirectoryName

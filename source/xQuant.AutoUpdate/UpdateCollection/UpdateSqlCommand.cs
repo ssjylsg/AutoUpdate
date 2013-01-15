@@ -6,12 +6,12 @@ using System.IO;
 namespace xQuant.AutoUpdate
 {
     /// <summary>
-    /// sql 更新命令
+    /// sql 升级命令
     /// </summary>
     public class UpdateSqlCommand
     {
         public string SqlFile;
-        public string Command;
+        private string _command;
         private bool _success;
         private string _sqlFileName;
         public UpdateSqlCommand(string sqlFile, string command, string logFile)
@@ -64,6 +64,14 @@ namespace xQuant.AutoUpdate
             get { return _providerName; }
             set { _providerName = value; }
         }
+        /// <summary>
+        /// 命令行
+        /// </summary>
+        public string Command
+        {
+            get { return _command; }
+            private set { _command = value; }
+        }
 
         private string _providerName;
 
@@ -75,29 +83,32 @@ namespace xQuant.AutoUpdate
         /// <returns></returns>
         public bool ExeCommand(out string result)
         {
-
             switch (ProviderName)
             {
                 case "Oracle.DataAccess.Client":
-                    result = Util.ExeCommand(Command);
+                    result = Util.ExeCommand(_command);
                     Success = ParseResult(result);
                     return Success;
                 case "System.Data.SqlClient":
                     try
                     {
                         result = string.Empty;
-                        this.ExecuteSql(this.SqlConnectionString, this.Command);
-                        return true;
+                        this.ExecuteSql(this.SqlConnectionString, this._command);
+                        Success = true;
+                        break;
                     }
                     catch (Exception e)
                     {
-                        result = string.Format("【{0}】文件执行错误，原因:{1}",this.SqlFile, e.Message);
-                        return false;
+                        result = string.Format("【{0}】文件执行错误，原因:{1}", this.SqlFile, e.Message);
+                        Success = false;
+                        break;
                     }
                 default:
                     result = string.Empty;
-                    return false;
+                    Success = false;
+                    break;
             }
+            return Success;
         }
         /// <summary>
         /// 解析SQLPLUS 返回的结果
@@ -133,7 +144,6 @@ namespace xQuant.AutoUpdate
                             cmd.ExecuteNonQuery();
                             transaction.Commit();
                         }
-
                     }
                     catch (Exception)
                     {
@@ -142,7 +152,13 @@ namespace xQuant.AutoUpdate
                     }
                 }
             }
-
+        }
+        /// <summary>
+        /// 重新读取sql命令  只针对Sql server
+        /// </summary>
+        internal void ReLoadCommand()
+        {
+            this.Command = Util.ReadFile(this.SqlFile);
         }
     }
 }

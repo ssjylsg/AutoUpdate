@@ -7,13 +7,13 @@ using System.Text;
 namespace xQuant.AutoUpdate
 {
     /// <summary>
-    /// Oracle数据库更新
+    /// Oracle数据库升级
     /// </summary>
     class OracleDataBaseUpdateService : BaseUpdateService
     {
         public override string Title
         {
-            get { return "数据库配置更新"; }
+            get { return "数据库配置升级"; }
         }
 
         public override string DirectoryName
@@ -71,12 +71,16 @@ namespace xQuant.AutoUpdate
 
                 #region 生成SQL文件
 
-                string[] files = Directory.GetFiles(dbDir);
 
-                IList<UpdateSqlCommand> updateCommands = new List<UpdateSqlCommand>();
-                for (int i = 0; i < files.Length; i++)
+                //SQL执行 有先后顺序 所以先对 对文件安装文件名 排序
+                List<string> files = new List<string>(Directory.GetFiles(dbDir));
+                files.Sort();
+
+                List<UpdateSqlCommand> updateCommands = new List<UpdateSqlCommand>();
+
+                foreach (string file in files)
                 {
-                    string fileName = new FileInfo(files[0]).Name;
+                    string fileName = new FileInfo(file).Name;
                     fileName = fileName.Substring(0, fileName.IndexOf('.')); // 去掉扩展名
 
                     // 批处理执行的SQL文件
@@ -85,7 +89,7 @@ namespace xQuant.AutoUpdate
                     string logFile = Path.Combine(logDir, string.Format("log_{0}.txt", fileName));
                     StringBuilder stringBuilder = new StringBuilder();
                     stringBuilder.AppendFormat("SPOOL  {0}", logFile).AppendLine();
-                    stringBuilder.AppendFormat("@{0}", files[0]);
+                    stringBuilder.AppendFormat("@{0}", file);
                     stringBuilder.Append(@" 
                                     SPOOL OFF
                                     EXIT
@@ -96,7 +100,7 @@ namespace xQuant.AutoUpdate
 
                     #region 生成执行命令
 
-                    UpdateSqlCommand sqlCommand = new UpdateSqlCommand(files[0],
+                    UpdateSqlCommand sqlCommand = new UpdateSqlCommand(file,
                                                                        string.Format("SQLPLUS {0}/{1}@{2}  @{3}",
                                                                                      dbConnection[1],
                                                                                      dbConnection[2],
@@ -191,7 +195,7 @@ namespace xQuant.AutoUpdate
         {
             foreach (KeyValuePair<string, IList<UpdateSqlCommand>> keyValuePair in _sqlBatCommand)
             {
-                OnShowMessage(string.Format("正在执行【{0}】库的数据更新", keyValuePair.Key));
+                OnShowMessage(string.Format("正在执行【{0}】库的数据升级", keyValuePair.Key));
                 foreach (UpdateSqlCommand updateCommand in keyValuePair.Value)
                 {
                     if (!updateCommand.Success)

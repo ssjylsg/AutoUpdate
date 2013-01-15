@@ -17,11 +17,7 @@ namespace xQuant.AutoUpdate
         /// </summary>
         private static ShowMessageHandler _showMessage;
         /// <summary>
-        /// 更新状态发生变化
-        /// </summary>
-        private static ShowMessageHandler _showUpdateStateChange;
-        /// <summary>
-        /// 更新服务
+        /// 升级服务
         /// </summary>
         private readonly IList<IUpdateService> _updateService;
         public UpdateManager()
@@ -61,16 +57,9 @@ namespace xQuant.AutoUpdate
             _showMessage -= handler;
             _showMessage += handler;
         }
+
         /// <summary>
-        /// 注册更新状态变化事件
-        /// </summary>
-        /// <param name="changeHander"></param>
-        public static void RegisterStateChange(ShowMessageHandler changeHander)
-        {
-            _showUpdateStateChange = changeHander;
-        }
-        /// <summary>
-        /// 开始更新服务
+        /// 开始升级服务
         /// </summary>
         public void Start()
         {
@@ -81,7 +70,7 @@ namespace xQuant.AutoUpdate
 
             _running = true;
 
-            ShowMessage(string.Format("本次更新备份文件地址{0}", BackupFolder));
+            ShowMessage(string.Format("本次升级备份文件地址{0}", BackupFolder));
             foreach (IUpdateService update in _updateService)
             {
                 if (_running)
@@ -90,12 +79,10 @@ namespace xQuant.AutoUpdate
                     {
                         if (update.State != UpdateState.Success && update.State != UpdateState.AfterUpdate)
                         {
-
-                            UpdateStateChange(string.Format("正在升级【{0}】", update.Title));
-
                             update.UpdateFolderName = UpdateFolderName;
                             update.TargetPath = ProgramFolderName;
                             update.BackUpFoler = BackupFolder;
+
                             update.Update();
                         }
                     }
@@ -109,21 +96,10 @@ namespace xQuant.AutoUpdate
                     ShowMessage("升级完成，请查看详细日志");
                 }
             }
-            UpdateStateChange("升级完成");
+
             _running = false;
         }
-        /// <summary>
-        /// 更新状态发生变化
-        /// </summary>
-        /// <param name="changeState"></param>
-        private void UpdateStateChange(string changeState)
-        {
-            ShowMessageHandler stateChange = _showUpdateStateChange;
-            if (stateChange != null)
-            {
-                stateChange(changeState);
-            }
-        }
+
         /// <summary>
         /// 消息提示
         /// </summary>
@@ -137,23 +113,12 @@ namespace xQuant.AutoUpdate
             }
         }
         /// <summary>
-        /// 停止更新
+        /// 停止升级
         /// </summary>
         public void Stop()
         {
             _running = false;
         }
-        /// <summary>
-        /// 重置是否更新成功标志
-        /// </summary>
-        //public void ReSetUpdateState()
-        //{
-        //    foreach (IUpdateService update in _updateService)
-        //    {
-        //        update.State = UpdateState.None;
-        //    }
-        //}
-
         private string _updateFolderName;
         /// <summary>
         /// 升级包程序所在地址

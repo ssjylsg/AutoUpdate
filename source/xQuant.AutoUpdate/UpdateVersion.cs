@@ -9,7 +9,23 @@ namespace xQuant.AutoUpdate
     /// </summary>
     public class UpdateVersion : IComparer<UpdateVersion>
     {
+        #region 私有变量
         private UpdateManager _updateManager;
+        /// <summary>
+        /// 产品名称
+        /// </summary>
+        private string _productName;
+        /// <summary>
+        /// 版本号
+        /// </summary>
+        private string _version;
+        /// <summary>
+        /// 本次升级文件夹全面
+        /// </summary>
+        private string _folderName;
+        #endregion
+
+        #region 构造函数
         public UpdateVersion()
         {
 
@@ -33,16 +49,11 @@ namespace xQuant.AutoUpdate
             this._updateManager.BackupFolder =
                 string.Format("{0}_{1}_备份_{2}", this.ProductName, this.Version, DateTime.Now.ToString("yyyy_MM_dd_HH_mm"));
         }
+        #endregion
 
+        #region 属性
         /// <summary>
-        /// 开始更新
-        /// </summary>
-        public void BeginUpdate()
-        {
-            _updateManager.Start();
-        }
-        /// <summary>
-        /// 获取更新失败的Update
+        /// 获取升级失败的Update
         /// </summary>
         public IUpdateService UpdateServiceError
         {
@@ -52,15 +63,6 @@ namespace xQuant.AutoUpdate
                     { return update.State == UpdateState.Fail; });
             }
         }
-        /// <summary>
-        /// 版本号
-        /// </summary>
-        private string _version;
-        /// <summary>
-        /// 本次升级文件夹全面
-        /// </summary>
-        private string _folderName;
-
         /// <summary>
         /// 版本号
         /// </summary>
@@ -93,14 +95,10 @@ namespace xQuant.AutoUpdate
         public IList<IUpdateService> CurrentService
         {
             get { return this._updateManager.CurrentService; }
-
         }
+        #endregion
 
-        /// <summary>
-        /// 产品名称
-        /// </summary>
-        private string _productName;
-
+        #region 重载方法
         public int Compare(UpdateVersion x, UpdateVersion y)
         {
             long version0 = long.Parse(x.Version.Replace(".", string.Empty));
@@ -109,10 +107,20 @@ namespace xQuant.AutoUpdate
         }
         public override string ToString()
         {
-            return string.Format("{0}版本正在升级", this.Version);
+            return string.Format("{0}版本正在升级：", this.Version);
+        }
+        #endregion
+
+        #region 公共函数
+        /// <summary>
+        /// 开始升级
+        /// </summary>
+        public void BeginUpdate()
+        {
+            _updateManager.Start();
         }
         /// <summary>
-        /// 停止更新
+        /// 停止升级
         /// </summary>
         internal void Stop()
         {
@@ -126,5 +134,6 @@ namespace xQuant.AutoUpdate
         {
             this._updateManager.RegisterMessage(showMessage);
         }
+        #endregion
     }
 }

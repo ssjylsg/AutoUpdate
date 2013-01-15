@@ -3,13 +3,13 @@ using System.Configuration;
 namespace xQuant.AutoUpdate
 {
     /// <summary>
-    /// 数据库更新
+    /// 数据库升级
     /// </summary>
     class DataBaseDecoratorUpdateService : BaseUpdateService
     {
         public override string Title
         {
-            get { return "数据库配置更新"; }
+            get { return "数据库配置升级"; }
         }
 
         public override string DirectoryName
