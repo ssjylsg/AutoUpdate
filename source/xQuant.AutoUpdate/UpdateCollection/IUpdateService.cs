@@ -9,7 +9,10 @@ namespace xQuant.AutoUpdate
     /// </summary>
     /// <param name="message"></param>
     public delegate void ShowMessageHandler(string message);
-
+    /// <summary>
+    /// 更新状态发生变化
+    /// </summary>
+    /// <param name="updateServiceService"></param>
     public delegate void StateChangeHandler(IUpdateService updateServiceService);
     /// <summary>
     /// 升级服务

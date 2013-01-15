@@ -23,6 +23,11 @@ namespace xQuant.AutoUpdate
             InitializeComponent();
             UpdateManager.RegisterStateChange(UpdateStateChange);
             AddControl();
+
+#if DEBUG
+            this.txtUpdate.Text = @"C:\Users\Administrator\Desktop\升级包";
+            this.txtPro.Text = @"C:\Users\Administrator\Desktop\中间件程序";
+#endif
         }
         /// <summary>
         /// UC控件
@@ -33,12 +38,12 @@ namespace xQuant.AutoUpdate
         /// </summary>
         private void AddControl()
         {
-            int count = 1;
+            int count = 0;
             _ucUpdateStates = new List<UCUpdateState>();
             foreach (IUpdateService update in UpdateManager.UpdateService)
             {
                 UCUpdateState ucUpdateState = new UCUpdateState(update);
-                ucUpdateState.Location = new Point(0, count * 40);
+                ucUpdateState.Location = new Point(0, count * 40 + 3);
                 panel2.Controls.Add(ucUpdateState);
                 update.StateChange += ucUpdateState.UpdateState;
                 count++;
@@ -58,6 +63,9 @@ namespace xQuant.AutoUpdate
             {
                 _updateVersionsQueue.Enqueue(updateVersion);
             }
+            this.progressBarUpdate.Properties.Maximum = _updateVersionsQueue.Count * UpdateManager.UpdateService.Count * 10;
+            this.progressBarUpdate.Properties.Minimum = 1;
+            this.progressBarUpdate.Properties.Step = 10;
             StartUpdate(_updateVersionsQueue.Dequeue(), true);
             this.btnStart.Enabled = false;
         }
@@ -243,14 +251,16 @@ namespace xQuant.AutoUpdate
         /// <param name="message"></param>
         private void UpdateStateChange(string message)
         {
-            message = string.Format("{1}  {0}", message, _currentVersion);
+
             if (this.lblTotalState.InvokeRequired)
             {
-                txbInfo.Invoke(new MethodInvoker(delegate { lblTotalState.Text = message; }));
+                txbInfo.Invoke(new MethodInvoker(delegate { UpdateStateChange(message); }));
             }
             else
             {
+                message = string.Format("{1}  {0}", message, _currentVersion);
                 lblTotalState.Text = message;
+                this.progressBarUpdate.PerformStep();
             }
         }
     }

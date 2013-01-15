@@ -104,7 +104,7 @@ namespace xQuant.AutoUpdate
                         update.State = UpdateState.Fail;
                         ShowMessage(e.Message);
                         this._running = false;
-                        throw;
+                        return;
                     }
                     ShowMessage("升级完成，请查看详细日志");
                 }
