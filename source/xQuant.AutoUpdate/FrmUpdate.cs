@@ -189,7 +189,7 @@ namespace xQuant.AutoUpdate
         /// </summary>
         /// <param name="folderName"></param>
         /// <returns></returns>
-        private List<UpdateVersion> GetUpdateVersions(string folderName)
+        private IEnumerable<UpdateVersion> GetUpdateVersions(string folderName)
         {
             List<UpdateVersion> updateVersions = new List<UpdateVersion>();
             if (Regex.IsMatch(folderName, "_+"))   //选中的文件是单个升级包 报名称符合 产品名称_版本号

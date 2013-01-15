@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace xQuant.AutoUpdate
 {
     /// <summary>
@@ -14,12 +10,7 @@ namespace xQuant.AutoUpdate
     /// </summary>
     /// <param name="updateServiceService"></param>
     public delegate void StateChangeHandler(IUpdateService updateServiceService);
-    /// <summary>
-    ///升级状态发生变化   每个updateSercie 的变化，如updateService 成功，失败，或者执行中 主要用于进度条的显示
-    /// </summary>
-    /// <param name="message"></param>
-    /// <param name="source"></param>
-    //public delegate void ProcessStateChangeHandler(string message, StateChangeSource source);
+
     /// <summary>
     /// 升级服务
     /// </summary>

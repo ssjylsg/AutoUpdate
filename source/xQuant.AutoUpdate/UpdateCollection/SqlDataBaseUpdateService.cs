@@ -1,10 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
 using System.IO;
-using System.Text;
 
 namespace xQuant.AutoUpdate
 {
@@ -74,7 +71,7 @@ namespace xQuant.AutoUpdate
                     {
                         if (!updateSqlCommand.Success)
                         {
-                            updateSqlCommand.ReLoadCommand();
+                            updateSqlCommand.ReLoadCommand(); //重新加载sql文件
                         }
                     }
                 }

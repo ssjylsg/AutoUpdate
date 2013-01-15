@@ -74,20 +74,15 @@ namespace xQuant.AutoUpdate
                             case "appSettings":
                                 this.AppSettingUpdate(configFile, content);
                                 break;
-                            default:
-                                break;
                         }
                     }
                 }
             }
         }
+
         /// <summary>
         /// 判断现有配置是否含有KeyName
-        /// </summary>
-        /// <param name="keyName"></param>
-        /// <param name="noteList"></param>
-        /// <param name="findedNote"></param>
-        /// <returns></returns>
+        /// </summary>  
         private bool IsExistsNote(string keyName, XmlNodeList noteList, out XmlNode findedNote, string keyValue)
         {
             for (int i = 0; i < noteList.Count; i++)
@@ -219,10 +214,9 @@ namespace xQuant.AutoUpdate
 
             using (StreamReader reader = new StreamReader(filePath, Encoding.Default))
             {
-                string content;
                 while (!reader.EndOfStream)
                 {
-                    content = (reader.ReadLine() ?? string.Empty).Trim();
+                    string content = (reader.ReadLine() ?? string.Empty).Trim();
                     if (!string.IsNullOrEmpty(content))
                     {
                         command.Add(content);

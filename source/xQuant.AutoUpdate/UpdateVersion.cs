@@ -59,7 +59,7 @@ namespace xQuant.AutoUpdate
         {
             get
             {
-                return ((List<IUpdateService>)this._updateManager.CurrentService).Find(delegate(IUpdateService update)
+                return ((List<IUpdateService>)this.CurrentService).Find(delegate(IUpdateService update)
                     { return update.State == UpdateState.Fail; });
             }
         }
