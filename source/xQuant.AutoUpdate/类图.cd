@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="微软雅黑" Size="9" />
+  <Class Name="xQuant.AutoUpdate.BaseUpdateService" Collapsed="true">
+    <Position X="0.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>UpdateCollection\BaseUpdateService.cs</FileName>
+      <HashCode>AAQgAAgAQYAAAEAGAAAACAEALAAABAAAAAAABARAECA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="xQuant.AutoUpdate.ComUpdateService" Collapsed="true">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>UpdateCollection\ComUpdateService.cs</FileName>
+      <HashCode>AAAgAAAAQAAAAEAAAAAAAAAACAAAAAAAAAAAAAAAEAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="xQuant.AutoUpdate.DataBaseDecoratorUpdateService" Collapsed="true">
+    <Position X="2.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>UpdateCollection\DataBaseDecoratorUpdateService.cs</FileName>
+      <HashCode>AAAgAAAAQAAAAEAIAAAAAAAACAAAAAAAAAAAAAAAEAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="xQuant.AutoUpdate.UpdateSqlCommand" Collapsed="true">
+    <Position X="5.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>UpdateCollection\UpdateSqlCommand.cs</FileName>
+      <HashCode>ACACIAAAAAAAQAAAAAAABAAAgiDAKAAAAAEAAAAQAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="xQuant.AutoUpdate.UpdateManager">
+    <Position X="0.5" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>UpdateCollection\UpdateManager.cs</FileName>
+      <HashCode>YAgAAAgAACAIAAAAAAAAAAEAAIAABAABIAAAAAAABQU=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="xQuant.AutoUpdate.SqlDataBaseUpdateService" Collapsed="true">
+    <Position X="10.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>UpdateCollection\SqlDataBaseUpdateService.cs</FileName>
+      <HashCode>AAAgAAAAQAAAAkAAAAAAAAAACAAAAAAAAAAAAAAAEAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="xQuant.AutoUpdate.ProgramUpdateService" Collapsed="true">
+    <Position X="4.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>UpdateCollection\ProgramUpdateService.cs</FileName>
+      <HashCode>AAAgAAAAQAAAAEAAAAAAAAAACAAAAAAAAAAAAAAAEAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="xQuant.AutoUpdate.OracleDataBaseUpdateService" Collapsed="true">
+    <Position X="6.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>UpdateCollection\OracleDataBaseUpdateService.cs</FileName>
+      <HashCode>AgAgAABAQAAAAkAAAAAAAAAACAAAAAAAABAACAAAEAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="xQuant.AutoUpdate.MQConfigUpdateService" Collapsed="true">
+    <Position X="8.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>UpdateCollection\MQConfigUpdateService.cs</FileName>
+      <HashCode>AAAgAAAAQAAAAEAAAAAAAAAACAAAAAAAAAAAAAAAEAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="xQuant.AutoUpdate.MiddlewareConfig" Collapsed="true">
+    <Position X="12" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>UpdateCollection\MiddlewareConfig.cs</FileName>
+      <HashCode>AAAgBAAAQAAAAEAAAAAAAAAACAAAEEACAAAAAAQAEIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="xQuant.AutoUpdate.UpdateVersion" Collapsed="true">
+    <Position X="3" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>UpdateVersion.cs</FileName>
+      <HashCode>YAAAAAAAJABAIAAMAAAAAAAAAAAAAAABIABAgAAIAAg=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="xQuant.AutoUpdate.IUpdateService" Collapsed="true">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>UpdateCollection\IUpdateService.cs</FileName>
+      <HashCode>AAQAAAgAAAAAAEAAAAAAAAAAIAAABAAAAAAABABAACA=</HashCode>
+    </TypeIdentifier>
+  </Interface>
+</ClassDiagram>
